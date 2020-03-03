@@ -8,7 +8,7 @@ class BookCommentsController < ApplicationController
     @comment.user_id = current_user.id
     @comment.book_id = @book.id
     @comment.save
-    redirect_back(fallback_location: root_path)
+    # redirect_back(fallback_location: root_path)　非同期のためコメントアウト
   end
 
   def destroy
@@ -16,7 +16,7 @@ class BookCommentsController < ApplicationController
     @comment = BookComment.find(params[:id])
     # これ全部消えない？やっぱり全部消える、というか他の本のコメントも消える→findparamsにして、idをしっかり送る
     @comment.destroy
-    redirect_back(fallback_location: root_path)
+    # redirect_back(fallback_location: root_path)
   end
 
 

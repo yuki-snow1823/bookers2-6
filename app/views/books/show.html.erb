@@ -26,6 +26,7 @@
 
 					<td>
 						<%= render 'books/post', book: @book%>
+						<%# いいね機能 %>
 					</td>
 
 					<!-- コメント数表示機能 -->
@@ -39,19 +40,15 @@
 						<%= link_to "Destroy",@book, method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn-sm btn-danger destroy_book_#{@book.id}" %>
 					</td>
 					<% end %>
-
-	
 				</tr>
-
-				<tr>
-					<%# @問題なんとかする %>
-					<% @book.book_comments.each do |book_comment|%>
-					<%# コメント非同期 %>
-					<%= render 'books/comment', {book_comment: book_comment, book: @book} %>
-					<% end %>
-				</tr>
-
 			</table>
+
+				<%# コメント非同期 %>
+			<table id="comment-<%= @book.id %>">
+			<%# クラスを渡したい %>
+				<%= render 'books/comment', book: @book %>
+			</table>
+
 
 			<!-- 投稿したコメントと書く場所表示 -->
 

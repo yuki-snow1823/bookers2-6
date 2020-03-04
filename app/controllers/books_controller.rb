@@ -10,6 +10,9 @@ class BooksController < ApplicationController
 
 		@book_comment = BookComment.new
 		# あっているかも
+
+		# コメントフォームの初期値　無理だった
+		@value = ""
   end
 
   def index

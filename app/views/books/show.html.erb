@@ -44,16 +44,16 @@
 			</table>
 
 				<%# コメント非同期 %>
-			<table id="comment-<%= @book.id %>">
+			<div id="comment-<%= @book.id %>">
 			<%# クラスを渡したい %>
 				<%= render 'books/comment', book: @book %>
-			</table>
+			</div>
 
 
 			<!-- 投稿したコメントと書く場所表示 -->
 
 			<div class="post-comment">
-				<%= form_with(model:[@book,@book_comment], remote: true, method: :post) do |f| %>
+				<%= form_with(model:[@book,@book_comment], remote: true, method: :post, value: "") do |f| %>
 				<%# ここで非同期にする local true doを消した！ %>
 				<%= f.text_area :comment, size: "80x10" %><br>
 				<!-- :の後はカラム名 -->

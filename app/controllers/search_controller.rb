@@ -1,6 +1,8 @@
 class SearchController < ApplicationController
   def search
 		@book = Book.new
+
+		# @bookid = Book.find(params[:book_id])
 		# 本 とりあえず
 		if params[:word].present? && params[:model] === "Book" && params[:search] === "perfect"
 			@books = Book.where('title LIKE ?', "#{params[:word]}") 
